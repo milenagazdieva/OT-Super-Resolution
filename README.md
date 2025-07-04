@@ -1,1 +1,3 @@
-# OT-Super-Resolution
+# An Optimal Transport Perspective on Unpaired Image Super-Resolution
+This is the official `Python` implementation of the [JOTA](https://link.springer.com/journal/10957) paper **An Optimal Transport Perspective on Unpaired Image Super-Resolution** by [Milena Gazdieva](https://scholar.google.com/citations?user=h52_Zx8AAAAJ&hl=en), [Petr Mokrov](https://scholar.google.com/citations?user=CRsi4IkAAAAJ&hl=en&oi=ao), [Litu Rout](https://scholar.google.com/citations?user=GYy7fWwAAAAJ&hl=en&oi=ao), [Alexander Korotin](https://scholar.google.ru/citations?user=1rIIvjAAAAAJ&hl=en), Andrey
+Kravchenko, [Alexander Filippov](https://scholar.google.com/citations?hl=en&user=fY5epnkAAAAJ), [Evgeny Burnaev](https://scholar.google.com/citations?hl=en&user=pCRdcOwAAAAJ). The code will be released soon.
