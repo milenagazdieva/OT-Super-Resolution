@@ -15,15 +15,15 @@ The repository contains reproducible `PyTorch` source code for performing compar
 
 ## Experiment with Wasserstein-2 Benchmark
 
-We note that IPM GANs regularized with content losses and Neural OT solver employ very **similar saddle-point optimization objectives** which differ by the $\sup$-$\inf$ order and constraints on the admissible potentials (discriminators). We show theoretically that the solutions of regularized GANs are *biased* (Theorem 4.1, Corollary 4.1), i.e., do not necessarily transform distribution of LR images to HR ones and illustrate the bias issue experimentally. 
+We note that IPM GANs regularized with content losses and Neural OT solver employ very **similar saddle-point optimization objectives** which differ by the `sup`-`inf` order and constraints on the admissible potentials (discriminators). We show theoretically that the solutions of regularized GANs are *biased* (Theorem 4.1, Corollary 4.1), i.e., do not necessarily transform distribution of LR images to HR ones and illustrate the bias issue experimentally. 
 
-In this experiment, we empirically confirm the insight that the solution $T^{\lambda}$ of regularized GAN's objective may not satisfy $T^{\lambda}_{\#}\mathbb{P}=\mathbb{Q}$. Notably, if $T^{\lambda}_{\#}\mathbb{P}=\mathbb{Q}$, then from our Lemma 4.1 it follows that $T^{\lambda}\equiv T^{*}$, where $T^{*}$ is an OT map from $\mathbb{P}$ to $\mathbb{Q}$ for $c(x,y)$. Thus, to access the bias, it is reasonable to compare the learned map $T^{\lambda}$ with the ground truth OT map $T^{*}$ for $\mathbb{P}$, $\mathbb{Q}$.
+In this experiment, we empirically confirm the insight that the solution $T^{\lambda}$ of regularized GAN's objective may not satisfy $T^{\lambda}\sharp\mathbb{P}=\mathbb{Q}$. Notably, if $T^{\lambda}\sharp\mathbb{P}=\mathbb{Q}$, then from our Lemma 4.1 it follows that $T^{\lambda}$ coincides with an OT map from $\mathbb{P}$ to $\mathbb{Q}$ for $c(x,y)$. Thus, to assess the bias, we compare the learned map $T^{\lambda}$ with the ground truth OT map $T^{*}$ for $\mathbb{P}$, $\mathbb{Q}.$
 
 For evaluation, we use the [Wasserstein-2 benchmark](https://github.com/iamalexkorotin/Wasserstein2Benchmark). It provides high-dimensional continuous pairs $\mathbb{P}$, $\mathbb{Q}$ with an *analytically known* OT map $T^{*}$ for the quadratic cost ${c(x,y)=\|x-y\|^{2}}$. We use their "Early" images benchmark pair. 
 
 <p align="center"><img src="pics/ipm_vs_ots_benchmark.png" width="700" /></p>
 
-The performance of the regularized IPM GAN *significantly* depends on the choice of the content loss value $\lambda$. Still, even for the best performing $\lambda=10^{2}$ all metrics are notably worse than for OTS. Importantly, *OTS decreases the burden of parameter searching* as there is no parameter $\lambda$. 
+The performance of the regularized IPM GAN *significantly* depends on the choice of the content loss value $\lambda$. Still, even for the best performing $\lambda=10^{2}$ **all metrics are notably worse than for OTS**. Importantly, OTS decreases the burden of parameter searching as there is no parameter $\lambda$. 
 
 ## Repository structure
 The implementation is GPU-based with the multi-GPU support. Tested with `torch==1.7.1` and 1 Tesla V100.
